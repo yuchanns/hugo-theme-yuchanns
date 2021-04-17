@@ -12,46 +12,8 @@
         <footer>
             <div class="single-footer">
                 <div class="single-footer-grid-root">
-                    <div class="single-footer-grid single-footer-grid-item">
-                        <div class="single-footer-grid-container">
-                            <div class="single-footer-grid-avatar">
-                                <img class="avatar-img" src="{{ .Site.Params.Profile.Avatar }}" alt="">
-                            </div>
-                        </div>
-                        <div class="single-footer-grid-container">
-                            <h5 class="single-title">{{ .Site.Params.Profile.Name }}</h5>
-                        </div>
-                    </div>
-                    <div class="single-footer-grid-label single-footer-grid-item">
-                        <div class="single-footer-grid-label-container">
-                            <p class="typography-label">{{ .Site.Params.Profile.Desc }}</p>
-                            <p class="typography-label-description">{{ .Site.Params.Description }}</p>
-                        </div>
-                    </div>
-                    <div class="single-footer-grid-social single-footer-grid-item">
-                        <div class="single-footer-grid-social-container">
-                            {{ if ne .Site.Params.Profile.Twitter "" }}
-                            <div class="social-container">
-                                <a class="social-link social-link-border-twitter social-twitter ripple" href="https://twitter.com/{{ .Site.Params.Profile.Twitter }}">
-                                    {{partial "social-twitter.html" . }}
-                                    <span class="social-label">
-                                        <span class="social-label-text">twitter</span>
-                                    </span>
-                                </a>
-                            </div>
-                            {{ end }}
-                            {{ if ne .Site.Params.Profile.Github "" }}
-                            <div class="social-container">
-                                <a class="social-link social-github ripple" href="https://github.com/{{ .Site.Params.Profile.github }}">
-                                    {{partial "social-github.html" . }}
-                                    <span class="social-label">
-                                        <span class="social-label-text">github</span>
-                                    </span>
-                                </a>
-                            </div>
-                            {{ end }}
-                        </div>
-                    </div>
+                    {{ partial "profile.html" . }}
+                    {{ partial "social.html" . }}
                 </div>
             </div>
         </footer>

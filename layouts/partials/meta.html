@@ -36,17 +36,15 @@
 <meta property="article:modified_time" content="{{ .Date.Format "2006-01-02"}}" />
 
 {{if .Keywords }}
-{{ range.Keywords }}<meta property="article:tag" content="{{ . }}" />
-{{ end }}
-{{else if isset .Params "tags" }}
-{{ range.Params.tags }}<meta property="article:tag" content="{{ . }}" />
+{{ range.Keywords }}
+<meta property="article:tag" content="{{ . }}" />
 {{ end }}
 {{ end }}
 
-{{if .Site.Params.twitter }}
+{{if .Site.Params.Profile.Twitter }}
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:site" content="@{{ .Site.Params.twitter }}" />
-<meta name="twitter:creator" content="@{{ .Site.Params.twitter }}" />
+<meta name="twitter:site" content="@{{ .Site.Params.Profile.Twitter }}" />
+<meta name="twitter:creator" content="@{{ .Site.Params.Profile.Twitter }}" />
 <meta
         name="twitter:title"
         content="{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}"
