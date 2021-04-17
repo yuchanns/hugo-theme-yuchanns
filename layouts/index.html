@@ -1,0 +1,15 @@
+{{ partial "header.html" . }}
+    <main>
+        <ul class="index-list">
+            {{range (where site.RegularPages "Type" "in" site.Params.mainSections)}}
+            <a class="index-list-item ripple" style="color: inherit; box-shadow: none;" href="{{ .Permalink }}">
+                <div class="index-list-item-text">
+                    <span class="index-list-item-title">{{ .Title }}</span>
+                    <span class="typography-thin">{{ .Date.Format "January 2, 2006" }}</span>
+                </div>
+            </a>
+            <li class="index-list-divider"></li>
+            {{end}}
+        </ul>
+    </main>
+{{ partial "footer.html" . }}

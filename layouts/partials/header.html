@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="light">
+    <div class="wrapper">
+        <header class="header">
+            <h4 class="site-title typography-title">
+                <a href="{{ .Site.BaseURL }}" class="site-title-link">{{.Site.Title}}</a>
+            </h4>
+            <div class="spacer"></div>
+            <div class="nav">
+                {{ range .Site.Params.menu }}
+                <a href="{{ .url }}">{{ .name }}</a>
+                {{ end }}
+                {{ partial "toggle-theme.html" . }}
+            </div>
+        </header>
