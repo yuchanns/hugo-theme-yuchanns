@@ -7,8 +7,6 @@ MathJax = {
     }
 };
 
-window.MathJax.Hub.Queue(['Typeset', window.MathJax.Hub])
-
 var prefer_dark = window.matchMedia("(prefers-color-scheme: dark)").matches
 
 window.onload = function () {

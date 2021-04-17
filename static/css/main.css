@@ -17,6 +17,12 @@ body.light {
     --single-bg: rgb(255, 255, 255);
     --single-color: rgba(0, 0, 0, 0.87);
     --social-text: rgba(0, 0, 0, 0.6);
+    --social-hover: rgba(63, 81, 181, 0.04);
+    --code-bg: #EFEFEF;
+    --tr-bg: #fff;
+    --tr-border-top: #c6cbd1;
+    --tr-n-2n: #f6f8fa;
+    --table-border: #dfe2e5;
 }
 
 body.dark {
@@ -35,6 +41,12 @@ body.dark {
     --single-bg: rgb(40, 44, 53);
     --single-color: rgb(255, 255, 255);
     --social-text: rgba(255, 255, 255, 0.7);
+    --social-hover: rgba(63, 81, 181, 0.08);
+    --code-bg: rgb(54, 60, 72);
+    --tr-bg: #282c35;
+    --tr-border-top: #c6cbd1;
+    --tr-n-2n: rgb(54, 60, 72);
+    --table-border: #dfe2e5;
 }
 
 body {
@@ -79,8 +91,37 @@ section svg {
     max-width: 100%;
 }
 
+section table {
+    margin-top: 0;
+    margin-bottom: 16px;
+    display: block;
+    width: max-content;
+    max-width: 100%;
+    overflow: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+section tr {
+    background-color: var(--tr-bg);
+    border-top: 1px solid var(--tr-border-top);
+}
+
+section tr:nth-child(2n) {
+    background-color: var(--tr-n-2n);
+}
+
+section th, section td {
+    padding: 6px 13px;
+    border: 1px solid var(--table-border);
+}
+
+section th {
+    font-weight: 600;
+}
+
 pre {
-    background: #EFEFEF;
+    background: var(--code-bg);
     padding: 10px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -91,6 +132,14 @@ pre {
 pre, code {
     font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     font-size: 0.875rem;
+}
+
+:not(pre) > code {
+    border-radius: .3em;
+    background: var(--inlineCode-bg);
+    color: var(--inlineCode-text);
+    padding: .15em .2em .05em;
+    white-space: normal;
 }
 
 .wrapper {
@@ -395,6 +444,10 @@ pre, code {
     cursor: pointer;
     background-color: transparent;
     border: 1px solid rgb(97, 97, 97);
+}
+
+.social-link:hover {
+    background-color: var(--social-hover);
 }
 
 .social-link-border-twitter {
