@@ -7,20 +7,27 @@ MathJax = {
     }
 };
 
-var prefer_dark = window.matchMedia("(prefers-color-scheme: dark)").matches
-
-window.onload = function () {
-    if (prefer_dark) {
+document.addEventListener("DOMContentLoaded", function () {
+    const prefer_dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const mode = localStorage.getItem('mode');
+    if (!mode && prefer_dark) {
         window.document.body.classList.replace("light", "dark")
-    } else {
-        window.document.body.classList.replace("dark", "light")
+    } else if (mode) {
+        const old = mode === "dark" ? "light" : "dark"
+        window.document.body.classList.replace(old, mode)
     }
-}
+})
 
 function toggle_theme() {
+    let prefer, old;
     if (window.document.body.classList.contains("light")) {
-        window.document.body.classList.replace("light", "dark")
+        prefer = "dark"
+        old = "light"
+
     } else {
-        window.document.body.classList.replace("dark", "light")
+        prefer = "light"
+        old = "dark"
     }
+    window.document.body.classList.replace(old, prefer)
+    localStorage.setItem("mode", prefer)
 }
